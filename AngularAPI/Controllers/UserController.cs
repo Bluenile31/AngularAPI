@@ -57,8 +57,7 @@ namespace AngularAuthAPI.Controllers
 
             //if(string.IsNullOrEmpty(userObj.Username))
             userObj.Password = PasswordHasher.HashPassword(userObj.Password);
-            userObj.Role = "User";
-            userObj.Token = "";
+            
             await _authContext.Users.AddAsync(userObj);
             await _authContext.SaveChangesAsync();
             return Ok(new
